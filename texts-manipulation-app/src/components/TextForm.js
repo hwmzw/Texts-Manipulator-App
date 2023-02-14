@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function TextForm(props) {
 
@@ -10,8 +8,6 @@ export default function TextForm(props) {
     const UpperCase = () => {
         const newText=text.toUpperCase()
         setText(newText)
-        toast.success("Your texts has been converted to Uppercase")
-        success.toast("yo")
     }
 
     //function to convert to lowercase
@@ -33,8 +29,8 @@ export default function TextForm(props) {
     }
      // function to copy and clear
      const CopyClearTexts = () => {
-      ClearText();
-      CopyTexts();
+      CopyTexts()
+      ClearText()
   }
   //function to remove extra spaces
   const RemoveExtraSpaces = () =>{
@@ -51,7 +47,6 @@ export default function TextForm(props) {
       <>
     <div>
     <h3 className="mb-3 my-4" >{props.title}</h3>
-
       <div className="mb-3 my-4">
         <textarea className="form-control my-3" id="myTextBox" rows="8" value={text} onChange={handleOnChange}>
         </textarea>
@@ -67,7 +62,7 @@ export default function TextForm(props) {
     <div className="container my-3">
     <h1>Text Summary</h1>
     
-    <p><b>{text.split(" ").length} Words and {text.length} Characters</b></p>
+     <p><b>{text.split(" ").length} Words and {text.length} Characters</b></p>
      <p>{0.01 * text.split(" ").length} minutes read</p>
      <h2>Preview</h2>
      <p>{text}</p>
